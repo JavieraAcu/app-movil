@@ -1,38 +1,32 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
+  <ion-toolbar class= "fondo">
+    <ion-title class = "banner">
       DuocUC
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class= "fondo">
 
   <div class="titulo">
     <h1>Bienvenido!</h1>
+    <p>Sistema de asistencia DuocUC</p>
   </div>
-
-  <div class="bienv">
-    <p>Bienvenido! {{ username }}</p>
-  </div>
-
   <ion-list>
     <ion-item class="line">
-      <ion-input [(ngModel)] = "username" labelPlacement="floating" label="Username">
+      <ion-input [(ngModel)] = "username" labelPlacement="floating" label="Usuario">
       </ion-input>
     </ion-item>
 
     <ion-item class="line">
-      <ion-input [(ngModel)] = "password" labelPlacement="floating" type="password" label="Password">
+      <ion-input [(ngModel)] = "password" labelPlacement="floating" type="password" label="Contraseña">
           <ion-input-password-toggle slot="end"></ion-input-password-toggle>
       </ion-input>
     </ion-item>
   </ion-list>
-
   <ion-button (click)="validateLogin()" class="btn-ing" expand="full">Ingresar</ion-button>
-
-
-
-  <a href="" class="txt-crear">Crea tu cuenta gratis</a>
+  <div class = "ion-text-center">
+    <a class="a-link">Crea tu cuenta gratis</a>
+  </div>
 
 </ion-content>
