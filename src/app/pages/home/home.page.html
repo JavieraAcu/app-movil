@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <!-- <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar> -->
+
+  <div>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button :auto-hide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu Button</ion-title>
+    </ion-toolbar>
+  </div>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <div class="bienv">
+    <p>Bienvenido! </p>
+    <!-- {{ username }} -->
+  </div>
+
+  <div>
+    <button (click)="ingresarLogin()">Ingresar</button>
+  </div>
+
+</ion-content>
