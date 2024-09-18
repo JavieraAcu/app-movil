@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-// import { Router } from "@angular/router";
+import { NavigationExtras, Router } from '@angular/router';
+import { AlertController, ToastController } from '@ionic/angular';
+import { LoginService } from 'src/app/services/login.service';
 
 
 @Component({
@@ -14,13 +16,15 @@ export class LoginPage implements OnInit {
   }
 
   password: number;
-  username: string;
+  username!: string;
   massage1: string;
   massage2: string;
   // message!: string;
   // message: string = '';
-  constructor() {
-    this.username = '';
+  constructor(
+    private router: Router
+  ) {
+    // this.username = '';
     this.password = 1111;
     this.massage1 = '';
     this.massage2 = '';
@@ -49,6 +53,7 @@ export class LoginPage implements OnInit {
     }
 
     console.log("ejecutando validacion");
+    this.router.navigate(['/home']);
   }
 
 }
