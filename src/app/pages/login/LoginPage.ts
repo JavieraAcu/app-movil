@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { NavigationExtras, Router } from '@angular/router';
-import { AlertController, ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
-
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -10,50 +9,48 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
-
-  ngOnInit() {
-  }
-
-  password: number;
+  password: string;
   username!: string;
-  massage1: string;
-  massage2: string;
-  // message!: string;
-  // message: string = '';
+  message: string;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private loginService: LoginService,
+    private alertController: AlertController
   ) {
-    // this.username = '';
-    this.password = 1111;
-    this.massage1 = '';
-    this.massage2 = '';
+    this.password = '';
+    this.message = '';
   }
 
-  validateLogin() {
-    const usernameV: string = 'adm';
-    const passwordV: number = 12345;
+  ngOnInit() {}
 
-    if (usernameV.length >= 3 && usernameV.length <= 8) {
-      console.log("el rango de palabras es correcto");
-      this.massage1 = 'El rango de palabras debe ser 3 a 8 caracteres';
-      if (passwordV.toString().length == 4) {
-        console.log("Contiene los 4 digitos");
-        if (usernameV === this.username && passwordV === this.password) {
+  async validateLogin() {
+    if (this.username.length >= 3 && this.username.length <= 8) {
+      if (this.password.toString().length === 5) {
+        const isValid = this.loginService.validateLogin(this.username, this.password.toString());
+
+        if (isValid) {
           console.log("Login exitoso");
-          // this.router.navigate(['/home']);
+          this.router.navigate(['/home']);
         } else {
           console.log("No se pudo realizar el login");
+          this.presentAlert('Credenciales incorrectas');
         }
       } else {
-        console.log("no cumple con la cantidad de digitos");
+        this.presentAlert("La contraseña debe tener 4 dígitos");
       }
     } else {
-      console.log("el rango de palabras es incorrecto");
+      this.presentAlert("El nombre de usuario debe tener entre 3 y 8 caracteres");
     }
-
-    console.log("ejecutando validacion");
-    this.router.navigate(['/home']);
   }
 
+  async presentAlert(message: string) {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: message,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
 }
