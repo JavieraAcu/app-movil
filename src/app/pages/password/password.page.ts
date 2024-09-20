@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-password',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./password.page.scss'],
 })
 export class PasswordPage implements OnInit {
+  username!: string;
+  constructor(
+    private router: Router,
+  ) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit() {}
+  async backtoLogin(){
+    this.router.navigate(['/login'])
   }
-
 }
