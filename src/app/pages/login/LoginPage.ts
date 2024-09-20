@@ -44,6 +44,11 @@ export class LoginPage implements OnInit {
     }
   }
 
+  async resetPassword() {
+    this.router.navigate(['/password'])
+  }
+
+
   async presentAlert(message: string) {
     const alert = await this.alertController.create({
       header: 'Error',
