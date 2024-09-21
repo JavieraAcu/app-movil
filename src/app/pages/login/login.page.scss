@@ -2,12 +2,28 @@
     background-color: white;
     color: white;
 }
-.banner{
-    text-align: center;
+// .banner{
+//     text-align: center;
+//     justify-content: center;
+// }
+
+.duoc, .uc{
     justify-content: center;
+}
+
+.duoc{
+    color: #F8B416;
+}
+
+.uc{
+    color: #001B35;
 }
 
 .txt-crear{
     text-align: center;
     justify-content: center;
+}
+
+.line, .boton{
+    padding: 5%;
 }

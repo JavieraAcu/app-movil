@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar class= "fondo">
     <ion-title class = "banner">
-      DuocUC
+      <span class="duoc">Registr</span><span class="uc">APP</span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,7 +10,7 @@
 
   <div class="titulo">
     <h1>Bienvenido!</h1>
-    <p>Sistema de asistencia RegistrAPP</p>
+    <p>Sistema de asistencia</p>
   </div>
   <ion-list>
     <ion-item class="line">
@@ -24,10 +24,10 @@
       </ion-input>
     </ion-item>
   </ion-list>
-  <ion-button expand="block" (click)="validateLogin()">
+  <ion-button class="boton" expand="block" (click)="validateLogin()">
     Ingresar
   </ion-button>
-  <ion-button expand="block" (click)="resetPassword()">
+  <ion-button fill="clear" class="boton2" expand="block" (click)="resetPassword()">
     ¿Olvidaste tu contraseña?
   </ion-button>
 </ion-content>
