@@ -14,8 +14,7 @@
 }
 
 .overlay-text {
-    position: absolute;  
-    color: white;  
+    position: absolute; 
     font-size: 24px;  
     text-align: center; 
     opacity: 1;
@@ -25,10 +24,6 @@
 
 .duoc, .uc{
     justify-content: center;
-}
-
-.duoc{
-    color: #F8B416;
 }
 
 .uc{
@@ -44,5 +39,9 @@
         opacity: 1;
         transform: scale(1);
     }
+}
+
+.banner{
+    color: #F8B416;
 }
   
