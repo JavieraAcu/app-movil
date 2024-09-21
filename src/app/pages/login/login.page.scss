@@ -38,14 +38,14 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    opacity: 0;  /* Hace que la imagen sea circular */
+    opacity: 0; 
     transition: opacity 2s ease-in-out;
 }
 
 .visible {
-    opacity: 1;  /* Imagen completamente visible cuando el usuario está logueado */
+    opacity: 1;  /* imagne visible post login */
 }
 
 .invisible {
-    opacity: 0;  /* Imagen completamente invisible antes de loguearse */
+    opacity: 0;  /* imagen invisible pre login */
 }

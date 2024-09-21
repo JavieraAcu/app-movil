@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
           this.isLoggedIn = true;
 
           setTimeout(() => {this.router.navigate(['/home']);
-          }, 3000);
+          }, 3000); // 3 segundos
         } else {
           console.log("No se pudo realizar el login");
           this.presentAlert('Credenciales incorrectas');
