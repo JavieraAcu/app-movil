@@ -4,7 +4,7 @@
       <ion-buttons slot="start">
         <ion-menu-button :auto-hide="false"></ion-menu-button>
       </ion-buttons>
-      <ion-title>RegistrAPP</ion-title>
+      <span class="duoc">Registr</span><span class="uc">APP</span>
     </ion-toolbar>
   </div>
   
@@ -16,8 +16,8 @@
     <p>Bienvenido! {{ currentUser?.username }}</p>
   </div>
 
-  <div>
-    <button (click)="ingresarLogin()">Volver al Login</button>
-  </div>
+  <ion-button fill="clear" class="boton2" expand="block" (click)="ingresarLogin()">
+    Cerrar sesión
+  </ion-button>
 
 </ion-content>

@@ -8,6 +8,7 @@ export class LoginService {
 
   users: User[] = [
     new User('admin', 'admin@ionic.com', '12345'),
+    new User('Alan', 'alan@ionic.com', '12345'),
   ];
 
   private currentUser: User | null = null;

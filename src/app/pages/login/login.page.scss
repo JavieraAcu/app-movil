@@ -27,3 +27,25 @@
 .line, .boton{
     padding: 5%;
 }
+
+
+.imagen-redondeada-container {
+    display: flex;
+    justify-content: center;
+}
+
+.imagen-redondeada {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    opacity: 0;  /* Hace que la imagen sea circular */
+    transition: opacity 2s ease-in-out;
+}
+
+.visible {
+    opacity: 1;  /* Imagen completamente visible cuando el usuario está logueado */
+}
+
+.invisible {
+    opacity: 0;  /* Imagen completamente invisible antes de loguearse */
+}

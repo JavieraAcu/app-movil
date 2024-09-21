@@ -12,6 +12,7 @@ export class LoginPage implements OnInit {
   password: string;
   username!: string;
   message: string;
+  isLoggedIn: boolean = false;
 
   constructor(
     private router: Router,
@@ -31,7 +32,10 @@ export class LoginPage implements OnInit {
 
         if (isValid) {
           console.log("Login exitoso");
-          this.router.navigate(['/home']);
+          this.isLoggedIn = true;
+
+          setTimeout(() => {this.router.navigate(['/home']);
+          }, 3000);
         } else {
           console.log("No se pudo realizar el login");
           this.presentAlert('Credenciales incorrectas');
