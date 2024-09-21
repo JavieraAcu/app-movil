@@ -2,12 +2,46 @@
     background-color: white;
     color: white;
 }
-.banner{
-    text-align: center;
+
+.duoc, .uc{
     justify-content: center;
+}
+
+.duoc{
+    color: #F8B416;
+}
+
+.uc{
+    color: #001B35;
 }
 
 .txt-crear{
     text-align: center;
     justify-content: center;
+}
+
+.line, .boton{
+    padding: 5%;
+}
+
+
+.imagen-redondeada-container {
+    display: flex;
+    justify-content: center;
+}
+
+.imagen-redondeada {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    opacity: 0; 
+    transition: opacity 2s ease-in-out;
+}
+
+.visible {
+    opacity: 1;  /* imagne visible post login */
+}
+
+.invisible {
+    opacity: 0;  /* imagen invisible pre login */
 }

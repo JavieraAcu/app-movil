@@ -28,10 +28,9 @@ export class LoginPage implements OnInit {
     if (this.username.length >= 3 && this.username.length <= 8) {
       if (this.password.toString().length === 5) {
         const isValid = this.loginService.validateLogin(this.username, this.password.toString());
-
         if (isValid) {
           console.log("Login exitoso");
-          this.router.navigate(['/home']);
+          this.router.navigate(['/transition']);
         } else {
           console.log("No se pudo realizar el login");
           this.presentAlert('Credenciales incorrectas');

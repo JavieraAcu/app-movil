@@ -8,6 +8,7 @@ export class LoginService {
 
   users: User[] = [
     new User('admin', 'admin@ionic.com', '12345'),
+    new User('Alan', 'alan@ionic.com', '12345'),
   ];
 
   private currentUser: User | null = null;
@@ -17,10 +18,10 @@ export class LoginService {
     const found = this.users.find(user => user.username === u)
     if (found && found.password === p) {
       this.currentUser = found; 
-      console.log('LoginService found user');
+      console.log('Usuario encontrado!');
       return true;
     }
-    console.log('LoginService didnt find user')
+    console.log('Usuario no encontrado')
     return false;
   }
   
@@ -36,7 +37,7 @@ export class LoginService {
   }
 
   backtoLogin(){
-    console.log('volver a home')
+    console.log('Volver a home')
     return true;
   }
 
