@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './pages/guards/auth.guard';  // Importa el AuthGuard desde pages/guards
 
 const routes: Routes = [
   {
@@ -9,7 +10,8 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
+    canActivate: [AuthGuard]  // Protege la ruta 'home' con AuthGuard
   },
   {
     path: 'login',
@@ -21,10 +23,9 @@ const routes: Routes = [
   },
   {
     path: 'transition',
-    loadChildren: () => import('./pages/transition/transition.module').then( m => m.TransitionPageModule)
-  },
-
-
+    loadChildren: () => import('./pages/transition/transition.module').then( m => m.TransitionPageModule),
+    canActivate: [AuthGuard]  // Protege la ruta 'transition' con AuthGuard
+  }
 ];
 
 @NgModule({
@@ -34,4 +35,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
