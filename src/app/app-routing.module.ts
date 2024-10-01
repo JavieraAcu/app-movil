@@ -24,8 +24,13 @@ const routes: Routes = [
   {
     path: 'transition',
     loadChildren: () => import('./pages/transition/transition.module').then( m => m.TransitionPageModule),
-    canActivate: [AuthGuard]  // Protege la ruta 'transition' con AuthGuard
+    canActivate: [AuthGuard] 
+  },
+  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule),
   }
+
 ];
 
 @NgModule({
