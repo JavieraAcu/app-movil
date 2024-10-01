@@ -35,7 +35,6 @@ export class AuthService {
 
   // Lógica para iniciar sesión
   async login(username: string, password: string): Promise<boolean> {
-    // Aquí puedes obtener las credenciales desde Ionic Storage (o una API si lo prefieres).
     const storedUser = await this.storage.get(username);
 
     if (storedUser && storedUser.password === password) {
@@ -55,7 +54,17 @@ export class AuthService {
   }
 
   // Verifica si el usuario está autenticado
-  isAuthenticated(): boolean {
-    return this.loggedIn;
+  async isAuthenticated(): Promise<boolean> {
+    const loggedInStatus = await this.storage.get('loggedIn');
+    return loggedInStatus || false;  // Retorna el estado de autenticación
+  }
+  
+  async getCurrentUser(): Promise<any | null> {
+    const userKeys = await this.storage.keys();
+    if (userKeys.length > 0) {
+      // Retorna el primer usuario encontrado (puedes cambiar esto según tu lógica)
+      return await this.storage.get(userKeys[0]);
+    }
+    return null; // No hay usuario
   }
 }

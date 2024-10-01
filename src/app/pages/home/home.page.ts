@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.services';
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/login.service';
-import { User } from '../../models/user';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  currentUser: User | null = null;
+  currentUser: any;
 
-  constructor(private router: Router, private loginService: LoginService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {
-    this.currentUser = this.loginService.getCurrentUser(); // Obtener usuario actual
-    if (!this.currentUser) {
+  async ngOnInit() {
+    this.currentUser = await this.authService.getCurrentUser(); // Obtener usuario actual
+    const isAuthenticated = await this.authService.isAuthenticated(); // Verifica si el usuario está autenticado
+    if (!isAuthenticated) {
       console.warn('No hay usuario autenticado');
-    } 
+    } else {
+      console.log('Usuario autenticado:', this.currentUser);
+    }
   }
 
   ingresarLogin() {
