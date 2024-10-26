@@ -11,6 +11,7 @@ import { AlertController } from '@ionic/angular';
 export class RegisterPage {
   username: string = '';
   password: string = '';
+  email: string = ''; 
 
   constructor(
     private authService: AuthService, 
@@ -19,17 +20,16 @@ export class RegisterPage {
   ) {}
 
   async registerUser() {
-    if (this.username && this.password) {
-      console.log('Botón de registro presionado'); 
-      const isRegistered = await this.authService.registerUser(this.username, this.password);
+    // Validar que los campos no estén vacíos
+    if (this.username && this.email && this.password) {
+      const isRegistered = await this.authService.registerUser(this.username, this.email, this.password);
       if (isRegistered) {
-        console.log('Usuario registrado con éxito');
-        this.router.navigate(['/login']);  // Redirige al login después del registro
+        this.router.navigate(['/login']); // Redirige al login después del registro
       } else {
         this.presentAlert('El nombre de usuario ya existe. Intenta con otro.');
       }
     } else {
-      this.presentAlert('Por favor, ingresa un nombre de usuario y una contraseña.');
+      this.presentAlert('Por favor, completa todos los campos.');
     }
   }
 
