@@ -7,20 +7,22 @@
       <span class="duoc">Registr</span><span class="uc">APP</span>
     </ion-toolbar>
   </div>
-  
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-  <div class="bienv"  >
+  <div class="bienv">
     <p>Bienvenido! {{ currentUser?.username }}</p>
   </div>
-  <ion-button expand="block">
-    Registrar asistencia
-  </ion-button>
-
+  <ion-button id = "boton"(click)="startScan()">Registrar Asistencia</ion-button>
   <ion-button fill="clear" class="boton2" expand="block" (click)="ingresarLogin()">
     Cerrar sesión
   </ion-button>
 
+<!-- Sección para mostrar el clima -->
+<div class="weather-container" *ngIf="weather">
+  <h2 class="weather-title">Clima en {{ city }}</h2>
+  <p class="temperature">Temperatura: {{ weather.current?.temp_c }} °C</p> <!-- Usa 'temp_c' en lugar de 'temp' -->
+  <img class="weather-icon" [src]="weather.current?.weather[0]?.icon" alt="Icono del clima" *ngIf="weather.current?.weather[0]?.icon"/>
+</div>
+  
 </ion-content>

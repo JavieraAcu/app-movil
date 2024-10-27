@@ -8,6 +8,23 @@
   transform: translateY(-50%);
 }
 
+#boton {
+  width: 100px; /* Ajusta el tamaño del botón */
+  height: 80px; /* Debe ser igual al ancho para mantener la forma cuadrada */
+  background-color: #007bff; /* Cambia el color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 10px; /* Bordes redondeados para un estilo más suave */
+  display: flex; /* Usar flexbox para centrar el contenido */
+  align-items: center; /* Centrar verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  text-align: center; /* Centra el texto */
+  font-size: 14px; /* Tamaño más pequeño del texto */
+  margin: 10px auto; /* Centra el botón y agrega margen superior e inferior */
+  transition: background-color 0.3s, transform 0.2s; /* Efecto de transición suave */
+}
+
 #container strong {
   font-size: 20px;
   line-height: 26px;
@@ -36,4 +53,43 @@
 
 .uc{
   color: #001B35;
+}
+//oscurecer el fondo cuando está el scanner activo
+.scanner-active {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.weather-container {
+  background-color: #007bff; /* Color de fondo claro */
+  border: 1px solid #007bff; /* Borde delgado */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  text-align: center; /* Centrar el texto */
+  margin: 30px auto; /* Margen para separar del resto */
+  width: fit-content; /* Ajusta el ancho al contenido */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+.weather-title {
+  font-size: 14px; /* Tamaño de texto para el título */
+  margin: 10px 0; /* Espaciado vertical */
+  color: #333; /* Color del texto */
+}
+
+.temperature {
+  font-size: 16px; /* Tamaño del texto de temperatura */
+  font-weight: bold; /* Texto en negrita para destacar la temperatura */
+  margin: 5px 0; /* Espaciado vertical */
+  color: #000000; /* Color del texto */
+}
+
+.description {
+  font-size: 12px; /* Tamaño de texto para la descripción */
+  margin: 5px 0; /* Espaciado vertical */
+  color: #555; /* Color del texto de descripción */
+}
+
+.weather-icon {
+  width: 30px; /* Ajusta el tamaño del icono */
+  height: 30px; /* Ajusta el tamaño del icono */
 }
